@@ -1,0 +1,19 @@
+name: 'Setup TeXLive'
+description: 'Installs TeXLive packages'
+inputs:
+  requirements-file:  # id of input
+    description: 'A list of packages to be installed'
+    required: true
+    default: '.github/texlive/requirements.txt'
+outputs:
+  random-number: 
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps: 
+    - run: apt-get install -y texlive
+    - run: |
+      if [ -f "${{ inputs.requirements-file }}" ]; then
+        xargs -0 apt-get install -y {} <"${{ inputs.requirements-file }}"
+      fi
