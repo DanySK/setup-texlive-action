@@ -13,9 +13,9 @@ runs:
   using: "composite"
   steps: 
     - shell: bash
-      run: apt-get install -y texlive
+      run: sudo apt-get install -y texlive
     - shell: bash
       run: |
         if [ -f "${{ inputs.requirements-file }}" ]; then
-          xargs -0 apt-get install -y {} <"${{ inputs.requirements-file }}"
+          xargs -0 sudo apt-get install -y {} <"${{ inputs.requirements-file }}"
         fi
