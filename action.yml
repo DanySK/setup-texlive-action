@@ -16,6 +16,6 @@ runs:
       run: apt-get install -y texlive
     - shell: bash
       run: |
-      if [ -f "${{ inputs.requirements-file }}" ]; then
-        xargs -0 apt-get install -y {} <"${{ inputs.requirements-file }}"
-      fi
+        if [ -f "${{ inputs.requirements-file }}" ]; then
+          xargs -0 apt-get install -y {} <"${{ inputs.requirements-file }}"
+        fi
