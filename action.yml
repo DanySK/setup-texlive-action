@@ -17,5 +17,5 @@ runs:
     - shell: bash
       run: |
         if [ -f "${{ inputs.requirements-file }}" ]; then
-          xargs -0 sudo apt-get install -y < <(tr \\n \\0 <versions.properties)
+          xargs -0 sudo apt-get install -y < <(tr \\n \\0 <"${{ inputs.requirements-file }}")
         fi
