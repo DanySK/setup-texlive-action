@@ -13,7 +13,9 @@ runs:
   using: "composite"
   steps: 
     - shell: bash
-      run: sudo apt-get install -y texlive
+      run: sudo apt-get update -y || sudo apt-get update -y || sudo apt-get update -y
+    - shell: bash
+      run: sudo apt-get install -y texlive || sudo apt-get install -y texlive || sudo apt-get install -y texlive
     - shell: bash
       run: |
         if [ -f "${{ inputs.requirements-file }}" ]; then
