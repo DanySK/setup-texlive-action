@@ -17,3 +17,6 @@ runs:
         if [ -f "${{ inputs.requirements-file }}" ]; then
           xargs -0 sudo apt-get install -y < <(tr \\n \\0 <"${{ inputs.requirements-file }}")
         fi
+branding:
+  icon: 'book-open'
+  color: 'blue'
